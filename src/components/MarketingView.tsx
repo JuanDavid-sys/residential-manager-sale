@@ -34,29 +34,36 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
     <div id="marketing_experience_root" className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
       
       {/* PROFESSIONAL NAVBAR */}
-      <nav id="marketing_navbar" className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 py-4">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">R</div>
-            <span className="font-bold text-xl tracking-tight text-slate-800">Residential <span className="text-blue-600">Manager</span></span>
+      <nav id="marketing_navbar" className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 py-3">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-x-6 gap-y-2">
+          <div className="flex items-center gap-2 mr-auto">
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold shrink-0">R</div>
+            <span className="font-bold text-lg sm:text-xl tracking-tight text-slate-800 whitespace-nowrap">Residential <span className="text-blue-600">Manager</span></span>
           </div>
           
-          <div className="flex items-center gap-2 sm:gap-6 text-sm font-medium text-slate-600 overflow-x-auto max-sm:-mx-4 max-sm:px-4 scrollbar-none flex-nowrap">
-            <a href="#problem_section" className="hover:text-blue-600 transition-colors shrink-0">Problemática</a>
-            <a href="#features_section" className="hover:text-blue-600 transition-colors shrink-0">Características</a>
-            <a href="#vision_section" className="hover:text-blue-600 transition-colors shrink-0">Visión 675</a>
-            <a href="#planes_section" className="hover:text-blue-600 transition-colors shrink-0">Planes</a>
-            <a href="#faq_section" className="hover:text-blue-600 transition-colors shrink-0">FAQ</a>
+          <div className="hidden sm:flex items-center gap-5 text-sm font-medium text-slate-600">
+            <a href="#problem_section" className="hover:text-blue-600 transition-colors">Problemática</a>
+            <a href="#features_section" className="hover:text-blue-600 transition-colors">Características</a>
+            <a href="#planes_section" className="hover:text-blue-600 transition-colors">Planes</a>
+            <a href="#faq_section" className="hover:text-blue-600 transition-colors">FAQ</a>
           </div>
 
           <button 
             id="nav_cta_dashboard_btn"
             onClick={onNavigateToDashboard}
-            className="px-5 py-2 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition-colors cursor-pointer active:scale-95 flex items-center gap-2"
+            className="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition-colors cursor-pointer active:scale-95 flex items-center gap-2 shrink-0"
           >
             <span>Ver Demo Dashboard</span>
             <ArrowRight className="w-4 h-4" />
           </button>
+
+          <div className="flex sm:hidden items-center gap-3 text-xs font-medium text-slate-600 overflow-x-auto w-full scrollbar-none pb-0.5">
+            <a href="#problem_section" className="hover:text-blue-600 transition-colors shrink-0 whitespace-nowrap">Problemática</a>
+            <a href="#features_section" className="hover:text-blue-600 transition-colors shrink-0 whitespace-nowrap">Características</a>
+            <a href="#vision_section" className="hover:text-blue-600 transition-colors shrink-0 whitespace-nowrap">Visión 675</a>
+            <a href="#planes_section" className="hover:text-blue-600 transition-colors shrink-0 whitespace-nowrap">Planes</a>
+            <a href="#faq_section" className="hover:text-blue-600 transition-colors shrink-0 whitespace-nowrap">FAQ</a>
+          </div>
         </div>
       </nav>
 
