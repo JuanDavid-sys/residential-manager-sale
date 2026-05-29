@@ -5,6 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: '/residential-manager-sale/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
