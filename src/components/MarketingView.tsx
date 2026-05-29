@@ -41,12 +41,12 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
             <span className="font-bold text-xl tracking-tight text-slate-800">Residential <span className="text-blue-600">Manager</span></span>
           </div>
           
-          <div className="flex items-center gap-2 sm:gap-6 text-sm font-medium text-slate-600">
-            <a href="#problem_section" className="hover:text-blue-600 transition-colors hidden md:block">Problemática</a>
-            <a href="#features_section" className="hover:text-blue-600 transition-colors">Características</a>
-            <a href="#vision_section" className="hover:text-blue-600 transition-colors hidden lg:block">Visión 675</a>
-            <a href="#planes_section" className="hover:text-blue-600 transition-colors">Planes</a>
-            <a href="#faq_section" className="hover:text-blue-600 transition-colors hidden sm:block">Preguntas Frecuentes</a>
+          <div className="flex items-center gap-2 sm:gap-6 text-sm font-medium text-slate-600 overflow-x-auto max-sm:-mx-4 max-sm:px-4 scrollbar-none flex-nowrap">
+            <a href="#problem_section" className="hover:text-blue-600 transition-colors shrink-0">Problemática</a>
+            <a href="#features_section" className="hover:text-blue-600 transition-colors shrink-0">Características</a>
+            <a href="#vision_section" className="hover:text-blue-600 transition-colors shrink-0">Visión 675</a>
+            <a href="#planes_section" className="hover:text-blue-600 transition-colors shrink-0">Planes</a>
+            <a href="#faq_section" className="hover:text-blue-600 transition-colors shrink-0">FAQ</a>
           </div>
 
           <button 
@@ -101,8 +101,8 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
                 onClick={onNavigateToDashboard}
                 className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-full shadow-sm text-center transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-3"
               >
-                <span>Acceder al Sistema (Simulación Real-Time)</span>
-                <ArrowRight className="w-5 h-5" />
+                <span className="max-sm:text-sm">Acceder al Sistema <span className="max-sm:hidden">(Simulación Real-Time)</span></span>
+                <ArrowRight className="w-5 h-5 shrink-0" />
               </button>
               <a 
                 href="#planes_section" 

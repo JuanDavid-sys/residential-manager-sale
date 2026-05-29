@@ -461,7 +461,7 @@ export default function DashboardView({ onNavigateToLanding }: DashboardProps) {
                     {db.towers.map((tower) => (
                       <div key={tower.id} className="space-y-1">
                         <span className="text-[10px] font-mono font-bold text-slate-400 block">{tower.name}</span>
-                        <div className="grid grid-cols-4 gap-1.5">
+                        <div className="grid grid-cols-3 sm:grid-cols-4 gap-1.5">
                           {tower.apartments.map((apt) => {
                             const isSelected = selectedAptId === apt.id;
                             return (
@@ -469,7 +469,7 @@ export default function DashboardView({ onNavigateToLanding }: DashboardProps) {
                                 type="button"
                                 key={apt.id}
                                 onClick={() => setSelectedAptId(apt.id)}
-                                className={`py-1 px-1.5 rounded-lg border text-[11px] font-bold font-mono transition-all text-center cursor-pointer ${
+                                className={`py-1.5 px-1 rounded-lg border text-[11px] font-bold font-mono transition-all text-center cursor-pointer ${
                                   isSelected
                                     ? 'bg-indigo-600 border-indigo-600 text-white shadow-sm scale-105'
                                     : 'bg-white border-slate-200 hover:border-slate-300 text-slate-700 hover:bg-slate-50'
@@ -1015,7 +1015,7 @@ export default function DashboardView({ onNavigateToLanding }: DashboardProps) {
             </div>
 
             {/* Parking cells layout */}
-            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-3">
               {db.parkingSpots.map((spot) => {
                 let cellStyle = "";
                 let badgeText = spot.number;
