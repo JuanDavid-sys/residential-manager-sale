@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { 
   Building, Shield, Zap, Users, CheckCircle2, DollarSign, MessageSquare, 
   Truck, ClipboardCheck, BarChart3, ChevronDown, ChevronUp, 
@@ -34,7 +35,7 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
     <div id="marketing_experience_root" className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
       
       {/* PROFESSIONAL NAVBAR */}
-      <nav id="marketing_navbar" className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 py-3">
+      <nav id="marketing_navbar" className="hidden sm:block sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 py-3">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-x-6 gap-y-2">
           <div className="flex items-center gap-2 mr-auto">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold shrink-0">R</div>
@@ -72,7 +73,11 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Hero text content */}
-          <div className="lg:col-span-7 space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="lg:col-span-7 space-y-6">
             <div className="inline-block px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-extrabold rounded-full mb-1 tracking-wider uppercase border border-indigo-200">
               Residential Manager • Infraestructura Operativa Residencial
             </div>
@@ -118,10 +123,15 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
                 Ver tarifas (Cop $90.000/mes)
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Visual Operations and Admin Statistics Widget */}
-          <div className="lg:col-span-5 bg-white p-6 rounded-2xl shadow-xl border border-slate-200">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+            className="lg:col-span-5 bg-white p-6 rounded-2xl shadow-xl border border-slate-200"
+          >
             <div className="border-b border-slate-100 pb-4 mb-5">
               <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
                 <BarChart3 className="w-5 h-5 text-blue-650" />
@@ -230,14 +240,20 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </header>
 
       {/* WHY US / CENTRALIZATION CONCEPT */}
       <section id="problem_section" className="py-20 px-6 max-w-7xl mx-auto space-y-16">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto space-y-4"
+        >
           <span className="text-xs uppercase font-extrabold tracking-widest text-blue-600 font-mono">El Desafío de la Copropiedad Moderna</span>
           <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
             El verdadero problema hoy no es "no tener herramientas"
@@ -247,12 +263,18 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
             <br />
             Eso sí sigue siendo un dolor <strong className="font-semibold text-slate-900">REAL</strong> incluso usando otros softwares del mercado.
           </p>
-        </div>
+        </motion.div>
 
         {/* Traditional vs Centralized Comparison */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Traditional card */}
-          <div className="bg-white p-8 rounded-2xl border border-slate-200 space-y-6 relative overflow-hidden flex flex-col justify-between">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-white p-8 rounded-2xl border border-slate-200 space-y-6 relative overflow-hidden flex flex-col justify-between"
+          >
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-mono text-red-600 bg-red-50 border border-red-100 rounded-full px-2.5 py-0.5 uppercase tracking-wider font-extrabold">
@@ -318,10 +340,16 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
                 El administrador asume la carga mental de organizar piezas que no encajan entre sí, perdiendo tiempo y exponiéndose a reclamos legales.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Unified Card */}
-          <div className="bg-slate-900 text-slate-100 p-8 rounded-2xl border border-slate-800 space-y-6 relative overflow-hidden shadow-2xl flex flex-col justify-between">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-slate-900 text-slate-100 p-8 rounded-2xl border border-slate-800 space-y-6 relative overflow-hidden shadow-2xl flex flex-col justify-between"
+          >
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-mono text-blue-400 bg-blue-950/60 border border-blue-900/60 rounded-full px-2.5 py-0.5 uppercase tracking-wider font-extrabold">
@@ -387,14 +415,20 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
                 Paz mental para el administrador: Control total y reducción del ruido operativo en segundos.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CORE FEATURES INDEXED (6 CARDS) */}
       <section id="features_section" className="py-20 bg-white border-t border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 space-y-14">
-          <div className="text-center max-w-2xl mx-auto space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+            className="text-center max-w-2xl mx-auto space-y-4"
+          >
             <span className="text-xs uppercase font-extrabold tracking-widest text-blue-600 font-mono">
               La Suite Completa
             </span>
@@ -404,9 +438,18 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
             <p className="text-slate-500 text-sm">
               Cada módulo ha sido afinado para solucionar las minucias reales exigidas por conserjes, contadores y residentes en edificios colombianos.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.08 } }
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {featuresList.map((feature) => {
               // Dynamically resolve icon component
               const renderIcon = () => {
@@ -422,8 +465,12 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
               };
 
               return (
-                <div 
-                  key={feature.id} 
+                <motion.div
+                  key={feature.id}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
                   id={`feature_card_${feature.id}`}
                   className="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-blue-400 hover:shadow-lg transition-all flex flex-col justify-between"
                 >
@@ -451,10 +498,10 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
                     <span>Módulo Listo</span>
                     <span className="text-blue-500">✓</span>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -465,7 +512,13 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 space-y-12 relative z-10">
-          <div className="text-center max-w-2xl mx-auto space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+            className="text-center max-w-2xl mx-auto space-y-4"
+          >
             <span className="text-xs uppercase font-extrabold tracking-widest text-blue-600 font-mono">
               Planes Flexibles
             </span>
@@ -475,12 +528,25 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
             <p className="text-slate-500 text-sm">
               Implemente Residential Manager en su copropiedad y experimente un control operacional incomparable desde el primer día.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.12 } }
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch"
+          >
             {planesList.map((plan, idx) => (
-              <div 
-                key={idx} 
+              <motion.div
+                key={idx}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 }
+                }}
                 id={`plan_price_card_${idx}`}
                 className={`flex flex-col justify-between p-8 rounded-3xl border transition-all ${
                   plan.recommended 
@@ -545,9 +611,9 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
                     Habilitación inmediata de la cuenta demo interactiva.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -555,7 +621,13 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
       <section id="faq_section" className="py-20 bg-white border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-6 space-y-12">
           
-          <div className="text-center space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+            className="text-center space-y-4"
+          >
             <span className="text-xs uppercase font-extrabold tracking-widest text-blue-600 font-mono">
               Resolución de dudas
             </span>
@@ -565,7 +637,7 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
             <p className="text-slate-500 text-sm">
               Aquí recopilamos las 6 dudas legales y prácticas más comunes formuladas por consejos de administración.
             </p>
-          </div>
+          </motion.div>
 
           <div className="space-y-4">
             {faqList.map((faq, idx) => {
@@ -600,7 +672,14 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
       </section>
 
       {/* FOOTER */}
-      <footer id="marketing_footer" className="bg-slate-950 text-slate-400 py-12 px-6 border-t border-slate-900">
+      <motion.footer
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        id="marketing_footer"
+        className="bg-slate-950 text-slate-400 py-12 px-6 border-t border-slate-900"
+      >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="space-y-2 text-center md:text-left">
             <span className="text-lg font-bold text-white tracking-tight block">Residential <span className="text-blue-500">Manager</span></span>
@@ -622,7 +701,7 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
             </p>
           </div>
         </div>
-      </footer>
+      </motion.footer>
 
     </div>
   );
