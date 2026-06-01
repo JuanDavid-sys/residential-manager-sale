@@ -241,21 +241,24 @@ export default function DashboardView({ onNavigateToLanding }: DashboardProps) {
   }, {} as Record<string, number>);
 
   return (
-    <div id="dashboard_root_canvas" className="min-h-screen bg-slate-50 text-slate-900 font-sans flex flex-col">
+    <div id="dashboard_root_canvas" className="min-h-screen bg-slate-50 text-slate-900 font-sans flex flex-col overflow-x-hidden">
       
       {/* COPROPED-NAVBAR */}
-      <nav id="dashboard_navbar" className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+      <nav id="dashboard_navbar" className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="bg-blue-600 p-2.5 rounded-xl text-white">
+          <div className="bg-blue-600 p-2 rounded-xl text-white shadow-lg shadow-blue-100">
             <Building2 className="w-5 h-5" />
           </div>
-          <div>
+          <div className="hidden sm:block">
             <h1 className="text-sm font-extrabold text-slate-900 tracking-tight leading-none">
               Conjunto Residencial San Marcos
             </h1>
             <span className="text-[10px] text-blue-600 font-mono tracking-widest font-semibold uppercase">
               Consola del Administrador (Live Demo)
             </span>
+          </div>
+          <div className="sm:hidden block">
+            <span className="font-bold text-slate-800 text-sm">Residential <span className="text-blue-600">Manager</span></span>
           </div>
         </div>
 
@@ -273,21 +276,22 @@ export default function DashboardView({ onNavigateToLanding }: DashboardProps) {
           <button 
             id="back_to_landing_btn"
             onClick={onNavigateToLanding}
-            className="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 py-1.5 px-3 rounded-full text-xs font-bold transition-all border border-slate-200 cursor-pointer"
+            className="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 py-1.5 px-3 rounded-full text-[10px] sm:text-xs font-bold transition-all border border-slate-200 cursor-pointer"
           >
-            <LogOut className="w-3.5 h-3.5 text-rose-500" />
-            <span>Volver al Portal de Ventas</span>
+            <LogOut className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-rose-500" />
+            <span className="hidden sm:inline">Volver al Portal de Ventas</span>
+            <span className="sm:hidden">Salir</span>
           </button>
         </div>
       </nav>
 
-      <div className="flex-1 max-w-7xl w-full mx-auto p-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
         
         {/* MAIN DASHBOARD CONTENT AREA */}
-        <main className="lg:col-span-9 space-y-8">
+        <main className="lg:col-span-9 space-y-6 sm:space-y-8">
           
           {/* WELCOME BANNER WITH METRICS */}
-          <section id="welcome_banner" className="bg-slate-900 border border-slate-850 p-6 rounded-3xl relative overflow-hidden text-white shadow-md">
+          <section id="welcome_banner" className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-slate-800 p-5 sm:p-6 rounded-3xl relative overflow-hidden text-white shadow-xl">
             <div className="absolute top-0 right-0 p-5 opacity-10 pointer-events-none">
               <Sparkles className="w-24 h-24 text-blue-300" />
             </div>
@@ -299,47 +303,41 @@ export default function DashboardView({ onNavigateToLanding }: DashboardProps) {
                   SISTEMA EN VIVO
                 </span>
                 <h2 className="text-xl font-extrabold text-white">
-                  ¡Hola, Administrador San Marcos! 👋
+                  ¡Hola, Administrador! 👋
                 </h2>
-                <p className="text-xs text-slate-400 max-w-md">
-                  Este panel refleja los registros activos de la copropiedad calculados en tiempo real. Utilice el simulador inferior para alterar el estado legal y financiero.
+                <p className="text-[11px] sm:text-xs text-slate-400 max-w-md">
+                  Panel interactivo con registros activos de la copropiedad calculados en tiempo real.
                 </p>
               </div>
 
               {/* Progress utilization group */}
-              <div className="flex flex-col sm:flex-row gap-6 shrink-0 bg-slate-950 p-4 rounded-2xl border border-slate-800">
+              <div className="flex flex-col sm:flex-row gap-5 shrink-0 bg-slate-950/50 backdrop-blur-sm p-4 rounded-2xl border border-slate-800">
                 {/* Apt Occupancy bar */}
-                <div className="space-y-1.5 min-w-[140px]">
-                  <div className="flex justify-between text-[11px] font-medium text-slate-300 font-mono">
-                    <span>Ocupación Aptos</span>
-                    <span className="font-bold text-blue-400">{overallOccupancyPct.toFixed(1)}%</span>
+                <div className="space-y-1.5 min-w-[120px]">
+                  <div className="flex justify-between text-[10px] font-medium text-slate-300 font-mono">
+                    <span>Ocupación</span>
+                    <span className="font-bold text-blue-400">{overallOccupancyPct.toFixed(0)}%</span>
                   </div>
-                  <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-blue-500 rounded-full transition-all duration-500" 
                       style={{ width: `${overallOccupancyPct}%` }}
                     />
                   </div>
-                  <span className="text-[10px] text-slate-500 block">
-                    {occupiedApartments} de {totalApartments} apartamentos
-                  </span>
                 </div>
 
                 {/* Parking utilization progress */}
-                <div className="space-y-1.5 min-w-[140px]">
-                  <div className="flex justify-between text-[11px] font-medium text-slate-300 font-mono font-bold">
-                    <span>Uso Parqueaderos</span>
-                    <span className="font-bold text-indigo-400">{parkingOccupancyPct.toFixed(1)}%</span>
+                <div className="space-y-1.5 min-w-[120px]">
+                  <div className="flex justify-between text-[10px] font-medium text-slate-300 font-mono font-bold">
+                    <span>Parqueaderos</span>
+                    <span className="font-bold text-indigo-400">{parkingOccupancyPct.toFixed(0)}%</span>
                   </div>
-                  <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-indigo-500 rounded-full transition-all duration-500" 
                       style={{ width: `${parkingOccupancyPct}%` }}
                     />
                   </div>
-                  <span className="text-[10px] text-slate-500 block">
-                    {occupiedParkingSpots} de {totalParkingSpots} celdas ocupadas
-                  </span>
                 </div>
               </div>
 
@@ -982,40 +980,29 @@ export default function DashboardView({ onNavigateToLanding }: DashboardProps) {
           </section>
 
           {/* PARKING MAP GRID VISUAL (CLICKABLE TOGGLES STATE) */}
-          <section id="parking_grid_section" className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <section id="parking_grid_section" className="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
               <div>
                 <h4 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
                   <span className="w-1.5 h-4 bg-indigo-500 rounded-full" />
-                  <span>Mapa de Parqueaderos Activos</span>
+                  <span>Estado de Parqueaderos</span>
                 </h4>
-                <p className="text-[11px] text-slate-500 mt-0.5">
-                  Haga un clic en cualquier celda para alternar su estado de ocupación (Simula actualización física en portería).
-                </p>
               </div>
               
-              <div className="flex flex-wrap gap-2 text-[9px] font-mono font-semibold">
-                <span className="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
+              <div className="flex flex-wrap gap-1.5 text-[9px] font-mono font-semibold">
+                <span className="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-100 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span>R: Disponible</span>
+                  <span>R: Libre</span>
                 </span>
-                <span className="px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200 flex items-center gap-1">
+                <span className="px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-100 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
                   <span>R: Ocupado</span>
-                </span>
-                <span className="px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                  <span>V: Ocupado</span>
-                </span>
-                <span className="px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-200 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                  <span>V: Disponible</span>
                 </span>
               </div>
             </div>
 
             {/* Parking cells layout */}
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-3">
+            <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-3">
               {db.parkingSpots.map((spot) => {
                 let cellStyle = "";
                 let badgeText = spot.number;
@@ -1039,22 +1026,14 @@ export default function DashboardView({ onNavigateToLanding }: DashboardProps) {
                   <button
                     key={spot.id}
                     onClick={() => toggleParkingSpace(spot.id)}
-                    className={`p-3.5 rounded-xl border text-center transition-all cursor-pointer active:scale-95 space-y-1 ${cellStyle}`}
+                    className={`p-2.5 sm:p-3.5 rounded-xl border text-center transition-all cursor-pointer active:scale-95 space-y-1 ${cellStyle}`}
                   >
                     <span className="text-xs font-mono font-bold block leading-none">
                       {badgeText}
                     </span>
-                    <span className="text-[9px] uppercase font-bold tracking-widest block font-mono opacity-60">
+                    <span className="text-[8px] uppercase font-bold tracking-widest block font-mono opacity-60">
                       {spot.type === 'Residente' ? 'RES' : 'VIS'}
                     </span>
-                    
-                    {spot.assignedTo ? (
-                      <span className="text-[8px] block font-mono truncate text-slate-700 font-semibold leading-none pt-0.5">
-                        {spot.assignedTo}
-                      </span>
-                    ) : (
-                      <span className="text-[8px] block font-mono opacity-30 leading-none pt-0.5">Libre</span>
-                    )}
                   </button>
                 );
               })}

@@ -35,9 +35,9 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
     <div id="marketing_experience_root" className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
       
       {/* PROFESSIONAL NAVBAR */}
-      <nav id="marketing_navbar" className="hidden sm:block sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 py-3">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center gap-x-6 gap-y-2">
-          <div className="flex items-center gap-2 mr-auto">
+      <nav id="marketing_navbar" className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 sm:px-6 py-3">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-x-6 gap-y-2">
+          <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold shrink-0">R</div>
             <span className="font-bold text-lg sm:text-xl tracking-tight text-slate-800 whitespace-nowrap">Residential <span className="text-blue-600">Manager</span></span>
           </div>
@@ -52,24 +52,16 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
           <button 
             id="nav_cta_dashboard_btn"
             onClick={onNavigateToDashboard}
-            className="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition-colors cursor-pointer active:scale-95 flex items-center gap-2 shrink-0"
+            className="hidden sm:flex px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition-colors cursor-pointer active:scale-95 items-center gap-2 shrink-0"
           >
             <span>Ver Demo Dashboard</span>
             <ArrowRight className="w-4 h-4" />
           </button>
-
-          <div className="flex sm:hidden items-center gap-3 text-xs font-medium text-slate-600 overflow-x-auto w-full scrollbar-none pb-0.5">
-            <a href="#problem_section" className="hover:text-blue-600 transition-colors shrink-0 whitespace-nowrap">Problemática</a>
-            <a href="#features_section" className="hover:text-blue-600 transition-colors shrink-0 whitespace-nowrap">Características</a>
-            <a href="#vision_section" className="hover:text-blue-600 transition-colors shrink-0 whitespace-nowrap">Visión 675</a>
-            <a href="#planes_section" className="hover:text-blue-600 transition-colors shrink-0 whitespace-nowrap">Planes</a>
-            <a href="#faq_section" className="hover:text-blue-600 transition-colors shrink-0 whitespace-nowrap">FAQ</a>
-          </div>
         </div>
       </nav>
 
       {/* HERO SECTION */}
-      <header id="hero_section" className="pt-16 pb-20 px-6 bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200 overflow-hidden">
+      <header id="hero_section" className="pt-10 sm:pt-16 pb-20 px-4 sm:px-6 bg-gradient-to-br from-white via-slate-50 to-blue-50/30 border-b border-slate-200 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Hero text content */}
@@ -77,23 +69,23 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="lg:col-span-7 space-y-6">
-            <div className="inline-block px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-extrabold rounded-full mb-1 tracking-wider uppercase border border-indigo-200">
+            className="lg:col-span-7 space-y-8">
+            <div className="inline-block px-3 py-1 bg-indigo-50 text-indigo-700 text-[10px] sm:text-xs font-extrabold rounded-full mb-1 tracking-wider uppercase border border-indigo-200">
               Residential Manager • Infraestructura Operativa Residencial
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tighter leading-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tighter leading-tight">
               Controle toda la operación de su conjunto <span className="text-blue-600">desde un solo lugar.</span>
             </h1>
-            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
               Administre apartamentos, residentes, vehículos, parqueaderos, pagos, comunicaciones y portería en una plataforma centralizada diseñada para propiedad horizontal en Colombia.
             </p>
             
             {/* Value checklist requested by user */}
-            <div className="bg-white p-4.5 rounded-2xl border border-slate-200 shadow-sm max-w-xl space-y-3">
+            <div className="bg-white/80 backdrop-blur-sm p-5 rounded-2xl border border-slate-200 shadow-sm max-w-xl space-y-4">
               <div className="text-[10px] font-mono uppercase tracking-widest text-slate-400 font-bold">
                 Todo queda organizado. Todo queda registrado.
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-bold text-slate-700">
+              <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-3 text-[11px] sm:text-xs font-bold text-slate-700">
                 <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" /> Residentes</span>
                 <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" /> Vehículos</span>
                 <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" /> Parqueaderos</span>
@@ -103,22 +95,22 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
                 <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" /> PQRS</span>
                 <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" /> Comunicaciones</span>
               </div>
-              <p className="text-[11px] text-indigo-700 font-semibold bg-indigo-50/50 p-2 rounded border border-indigo-100/50 text-center font-mono">
+              <p className="text-[11px] text-indigo-700 font-semibold bg-indigo-50/50 p-2.5 rounded-xl border border-indigo-100/50 text-center font-mono">
                 Toda la información del conjunto conectada en un solo sistema.
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
               <button
                 onClick={onNavigateToDashboard}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-full shadow-sm text-center transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-3"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg shadow-blue-200 transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-3"
               >
-                <span className="max-sm:text-sm">Acceder al Sistema <span className="max-sm:hidden">(Simulación Real-Time)</span></span>
+                <span className="text-sm sm:text-base">Acceder al Sistema <span className="hidden sm:inline">(Simulación)</span></span>
                 <ArrowRight className="w-5 h-5 shrink-0" />
               </button>
               <a 
                 href="#planes_section" 
-                className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-semibold px-6 py-4 rounded-full text-center transition-all text-sm"
+                className="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-semibold px-6 py-4 rounded-2xl text-center transition-all text-sm"
               >
                 Ver tarifas (Cop $90.000/mes)
               </a>
@@ -161,49 +153,35 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
               </div>
 
               {/* Information Grid under management */}
-              <div className="space-y-3">
-                <span className="text-xs font-semibold text-slate-400 tracking-wider uppercase block font-mono">
-                  Información y activos bajo gestión:
+              <div className="space-y-4">
+                <span className="text-[10px] font-semibold text-slate-400 tracking-wider uppercase block font-mono">
+                  Activos bajo gestión estimada:
                 </span>
-                <div className="grid grid-cols-2 gap-2.5">
-                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-150 flex flex-col justify-between">
-                    <span className="text-[10px] text-slate-500 uppercase font-mono font-semibold">Residents</span>
-                    <span className="text-base font-bold text-slate-900 mt-1 flex items-center gap-1.5">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col justify-between">
+                    <span className="text-[9px] text-slate-500 uppercase font-mono font-bold">Residents</span>
+                    <span className="text-sm sm:text-base font-bold text-slate-900 mt-1">
                       👥 {calculatedResidents}
                     </span>
                   </div>
                   
-                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-150 flex flex-col justify-between">
-                    <span className="text-[10px] text-slate-500 uppercase font-mono font-semibold">Vehículos</span>
-                    <span className="text-base font-bold text-slate-900 mt-1 flex items-center gap-1.5">
+                  <div className="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col justify-between">
+                    <span className="text-[9px] text-slate-500 uppercase font-mono font-bold">Vehículos</span>
+                    <span className="text-sm sm:text-base font-bold text-slate-900 mt-1">
                       🚗 {calculatedVehicles}
                     </span>
                   </div>
                   
-                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-150 flex flex-col justify-between">
-                    <span className="text-[10px] text-slate-500 uppercase font-mono font-semibold">Mascotas</span>
-                    <span className="text-base font-bold text-slate-900 mt-1 flex items-center gap-1.5">
-                      🐶 {calculatedPets}
-                    </span>
-                  </div>
-                  
-                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-150 flex flex-col justify-between">
-                    <span className="text-[10px] text-slate-500 uppercase font-mono font-semibold">Parqueaderos</span>
-                    <span className="text-base font-bold text-slate-900 mt-1 flex items-center gap-1.5">
+                  <div className="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col justify-between">
+                    <span className="text-[9px] text-slate-500 uppercase font-mono font-bold">Parqueaderos</span>
+                    <span className="text-sm sm:text-base font-bold text-slate-900 mt-1">
                       🅿️ {calculatedParking}
                     </span>
                   </div>
-
-                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-150 flex flex-col justify-between">
-                    <span className="text-[10px] text-slate-500 uppercase font-mono font-semibold">Paquetes / Mes</span>
-                    <span className="text-base font-bold text-blue-600 mt-1 flex items-center gap-1.5">
-                      📦 {calculatedPackages}
-                    </span>
-                  </div>
                   
-                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-150 flex flex-col justify-between">
-                    <span className="text-[10px] text-slate-500 uppercase font-mono font-semibold">PQRS Mensuales</span>
-                    <span className="text-base font-bold text-indigo-600 mt-1 flex items-center gap-1.5">
+                  <div className="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col justify-between">
+                    <span className="text-[9px] text-slate-500 uppercase font-mono font-bold">PQRS / Mes</span>
+                    <span className="text-sm sm:text-base font-bold text-indigo-600 mt-1">
                       📋 {calculatedPqrs}
                     </span>
                   </div>
@@ -211,23 +189,23 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
               </div>
 
               {/* Bottom Contrast Box: Sin vs Con */}
-              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-3 pt-3">
+              <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-4">
                 <div className="text-[10px] text-slate-400 uppercase tracking-widest font-bold font-mono">
-                  La Realidad Operativa del Conjunto
+                  Realidad Operativa
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                  <div className="p-2.5 bg-red-50 text-red-900 border border-red-100 rounded-lg space-y-1">
-                    <strong className="font-bold text-[11px] block">Sin Residential Manager</strong>
-                    <p className="text-[10px] text-slate-600 leading-normal">
-                      Información dispersa en chats informales, cuadernos de mano, Exceles que se corrompen y carpetas físicas. Trazabilidad nula.
+                <div className="grid grid-cols-1 gap-3 text-xs">
+                  <div className="p-3 bg-white text-red-900 border border-red-100 rounded-xl space-y-1">
+                    <strong className="font-bold text-[11px] flex items-center gap-1.5"><AlertTriangle className="w-3.5 h-3.5 text-red-500" /> Sin Residential Manager</strong>
+                    <p className="text-[10px] text-slate-500 leading-normal">
+                      Información dispersa en chats informales y Exceles. Trazabilidad nula.
                     </p>
                   </div>
                   
-                  <div className="p-2.5 bg-emerald-50 text-emerald-950 border border-emerald-100 rounded-lg space-y-1">
-                    <strong className="font-bold text-[11px] text-emerald-800 block">Con Residential Manager</strong>
+                  <div className="p-3 bg-emerald-50 text-emerald-950 border border-emerald-100 rounded-xl space-y-1">
+                    <strong className="font-bold text-[11px] text-emerald-800 flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-emerald-600" /> Con Residential Manager</strong>
                     <p className="text-[10px] text-slate-600 leading-normal">
-                      Todo conectado y centralizado. Expediente digital instantáneo por unidad con un único historial inalterable.
+                      Todo conectado y centralizado. Expediente digital instantáneo por unidad.
                     </p>
                   </div>
                 </div>
