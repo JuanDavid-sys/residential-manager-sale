@@ -119,10 +119,6 @@ export const faqList: FAQItem[] = [
     answer: "El sistema genera las cuentas de cobro automáticamente al inicio de cada mes calculando el coeficiente de copropiedad e intereses si los hay. El residente recibe la notificación por email o app, pulsa el botón de pago y puede realizar la transacción por PSE, Nequi o Daviplata de forma 100% segura. El dinero llega directo a la cuenta corriente o de ahorros autorizada del conjunto."
   },
   {
-    question: "¿Cumple la plataforma con la legislación de Propiedad Horizontal (Ley 675) en Colombia?",
-    answer: "Sí, Residential Manager está desarrollado bajo el marco legal de la Ley 675 de 2001 de Colombia. Facilitamos el quórum en asambleas virtuales o mixtas, la publicación de actas conforme a la ley, la gestión de sanciones basadas en el manual de convivencia y cumplimos estrictamente con la Ley de Protección de Datos Personales (Ley 1581 / Habeas Data)."
-  },
-  {
     question: "¿Cómo se realiza la importación inicial de todos los datos del conjunto?",
     answer: "No tienes que digitar apartamento por apartamento a mano. En el momento de la contratación, te entregamos una plantilla de Excel muy sencilla para que pegues el censo actual (apartamentos, torres, nombres, cédulas y correos). Nuestro equipo técnico la procesa y en menos de 24 horas hábiles tu conjunto está configurado y listo para despegar."
   }

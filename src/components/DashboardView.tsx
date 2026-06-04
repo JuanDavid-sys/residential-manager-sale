@@ -270,7 +270,6 @@ export default function DashboardView({ onNavigateToLanding }: DashboardProps) {
               <span>Base de datos: Conectada</span>
             </span>
             <span>·</span>
-            <span>Estándar: Ley 675</span>
           </div>
 
           <button 
@@ -495,7 +494,6 @@ export default function DashboardView({ onNavigateToLanding }: DashboardProps) {
                   <div className="bg-white/80 border border-emerald-100 p-2.5 rounded-xl text-[10px] font-mono text-emerald-800 space-y-1">
                     <div>• Menos llamadas y chats directos</div>
                     <div>• Cero errores de fórmulas Excel</div>
-                    <div>• Respaldo legal Ley 675 completa</div>
                   </div>
                 </div>
               </div>
@@ -1472,35 +1470,6 @@ export default function DashboardView({ onNavigateToLanding }: DashboardProps) {
               <span className="text-[9px] text-slate-400">
                 Mascotas totales registradas: {totalPets}
               </span>
-            </div>
-          </div>
-
-          {/* COMPLIANCE CHECK FOR COLOMBIAN PH LEY 675 */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-xs space-y-3.5">
-            <h5 className="font-bold text-slate-900 flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
-              <span>Cumplimiento Ley 675 / 1581</span>
-            </h5>
-            <p className="text-[11px] text-slate-500 leading-snug">
-              Los registros de censo, correspondencia, placas y PQRS generados cumplen con las normativas colombianas de propiedad horizontal y protección de datos (Habeas Data).
-            </p>
-            
-            <div className="bg-slate-50 p-3 rounded-xl space-y-1.5 border border-slate-200">
-              <span className="text-[10px] text-slate-400 block uppercase font-mono font-bold">Módulos Auditados:</span>
-              <div className="space-y-1 text-[11px] text-slate-600">
-                <div className="flex justify-between">
-                  <span>• Coeficiente de copropiedad:</span>
-                  <span className="text-emerald-700 font-bold">Aprobado</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>• Protección Habeas Data:</span>
-                  <span className="text-emerald-700 font-bold">Aprobado</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>• Regulación PQRS (15 días):</span>
-                  <span className="text-emerald-700 font-bold">Activo</span>
-                </div>
-              </div>
             </div>
           </div>
 

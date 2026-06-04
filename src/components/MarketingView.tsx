@@ -397,6 +397,84 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
         </div>
       </section>
 
+      {/* 4 KEY QUESTIONS SECTION — RESPUESTAS DIRECTAS */}
+      <section className="py-20 bg-white border-t border-slate-200">
+        <div className="max-w-6xl mx-auto px-6 space-y-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.5 }}
+            className="text-center max-w-3xl mx-auto space-y-4"
+          >
+            <span className="text-xs uppercase font-extrabold tracking-widest text-blue-600 font-mono">
+              ¿Su administración realmente está en control?
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
+              4 preguntas que todo administrador debería hacerse
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                number: "01",
+                question: "¿Qué tan fácil es obtener una visión completa del conjunto cuando la información está repartida en múltiples herramientas, documentos y procesos?",
+                answer: "Sin un sistema centralizado, obtener una visión completa es prácticamente imposible. Con Residential Manager, el censo, los vehículos, las mascotas, los parqueaderos, los pagos, las PQRS y las comunicaciones viven en un solo lugar. Un clic y tienes el expediente completo de cualquier unidad al instante."
+              },
+              {
+                number: "02",
+                question: "¿Qué tan preparada está la administración para operar sin la persona que más conoce el conjunto?",
+                answer: "Con Residential Manager, el conocimiento no depende de una sola persona. Cada novedad, cada autorización, cada novedad de portería queda registrada con fecha y hora exacta. Si el administrador o el portero se ausenta, quien llegue encuentra el historial intacto, digital y operativo desde el día uno."
+              },
+              {
+                number: "03",
+                question: "¿La información trabaja para usted o usted trabaja para encontrarla?",
+                answer: "La información trabaja para usted. Todos los datos están centralizados, indexados y disponibles al instante. No más búsquedas en chats de WhatsApp, carpetas físicas o archivos de Excel perdidos. Usted consulta, el sistema responde."
+              },
+              {
+                number: "04",
+                question: "¿Cuántas horas al mes dedica a recopilar información de diferentes fuentes?",
+                answer: "Los administradores reportan entre 8 y 20 horas mensuales perdidas buscando y cruzando datos entre hojas de cálculo, correos y cuadernos de portería. Con Residential Manager esa tarea se reduce a minutos porque todo está en un solo lugar, actualizado en tiempo real."
+              }
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="text-3xl font-extrabold text-blue-600/20 font-mono leading-none">{item.number}</span>
+                  <div className="space-y-2">
+                    <h3 className="text-sm font-bold text-slate-900 leading-snug">
+                      {item.question}
+                    </h3>
+                    <p className="text-[12px] text-slate-600 leading-relaxed">
+                      {item.answer}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="text-center"
+          >
+            <p className="text-sm text-slate-500 max-w-xl mx-auto font-light">
+              Si alguna de estas preguntas le generó inquietud, Residential Manager está diseñado precisamente para resolverla.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CORE FEATURES INDEXED (6 CARDS) */}
       <section id="features_section" className="py-20 bg-white border-t border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6 space-y-14">
@@ -662,7 +740,7 @@ export default function MarketingView({ onNavigateToDashboard }: MarketingProps)
           <div className="space-y-2 text-center md:text-left">
             <span className="text-lg font-bold text-white tracking-tight block">Residential <span className="text-blue-500">Manager</span></span>
             <p className="text-xs text-slate-500 max-w-sm">
-              El primer ecosistema digital de automatización y administración para Propiedades Horizontales bajo la Ley 675 colombiana.
+              El primer ecosistema digital de automatización y administración para Propiedades Horizontales colombianas.
             </p>
           </div>
           
